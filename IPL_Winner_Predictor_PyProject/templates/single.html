@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Single Match Prediction</title>
+
+    <link href="/static/tailwind.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen p-8">
+
+    <a href="/" class="text-blue-500 underline">← Back</a>
+
+    <h2 class="text-2xl font-semibold my-6">Single Match Prediction</h2>
+
+    <form method="post" class="bg-white p-6 rounded shadow w-96">
+        <label>Team 1</label>
+        <select name="team1" class="w-full p-2 border rounded mb-4">
+            {% for t in teams %}
+            <option>{{ t }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Team 2</label>
+        <select name="team2" class="w-full p-2 border rounded mb-4">
+            {% for t in teams %}
+            <option>{{ t }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Venue</label>
+        <select name="venue" class="w-full p-2 border rounded mb-4">
+            {% for v in venues %}
+            <option>{{ v }}</option>
+            {% endfor %}
+        </select>
+
+        <button class="bg-blue-600 text-white w-full py-2 rounded">
+            Predict
+        </button>
+    </form>
+
+    {% if result %}
+    <div class="mt-8 bg-white p-6 rounded shadow w-96">
+        <h3 class="text-xl font-semibold mb-2">Prediction Result</h3>
+        <p><strong>Winner:</strong> {{ result.winner }}</p>
+        <p><strong>Win Probability:</strong> {{ result.prob }}</p>
+        <p><strong>Toss Winner:</strong> {{ result.toss }}</p>
+        <p><strong>Toss Decision:</strong> {{ result.decision }}</p>
+    </div>
+    {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/static/tailwind.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-8">
+
+<a href="/" class="text-blue-500 underline">← Back</a>
+
+<h2 class="text-2xl font-semibold my-6">Tournament Simulation</h2>
+
+<form method="post">
+    <button class="bg-green-600 text-white px-6 py-2 rounded shadow">
+        Run Simulation
+    </button>
+</form>
+
+{% if output %}
+<div class="mt-6 bg-black text-green-300 p-6 rounded shadow overflow-y-scroll h-96 font-mono text-sm">
+    <pre>{{ output }}</pre>
+</div>
+{% endif %}
+
+</body>
+</html>
